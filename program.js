@@ -1,7 +1,7 @@
-var summary = 0;
+var fs = require('fs');
 
-for (var i = 2; i < process.argv.length; i++) {
-	summary = summary + Number(process.argv[i]);
-}
+var file = process.argv[2];
+var bufferContent = fs.readFileSync(file, 'utf-8');
+var lines = bufferContent.split('\n');
 
-console.log(summary)
+console.log(lines.length - 1);
