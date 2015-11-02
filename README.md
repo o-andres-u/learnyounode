@@ -1,2 +1,3 @@
-First exercise
-Write a program that prints the text "HELLO WORLD" to the console (stdout).
+Second exercise:
+Write a program that accepts one or more numbers as command-line arguments and prints the sum of those numbers to the console (stdout).
+
