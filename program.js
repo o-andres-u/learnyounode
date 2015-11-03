@@ -1,8 +1,18 @@
+// Node Modules
 var fs = require('fs');
-var file = process.argv[2];
+var path = require('path');
 
-fs.readFile(file, 'utf-8', function(err, data) {
+// Local variables
+var dir = process.argv[2];
+var filter = '.' + process.argv[3];
+
+fs.readdir(dir, function (err, files) {
 	if (err) throw err;
-	var lines = data.split('\n').length - 1;
-	console.log(lines);	
+	var extension = '';
+	files.forEach(function (file) {
+		extension = path.extname(file);
+		if (extension === filter) {
+			console.log(file);
+		}
+	});
 });
