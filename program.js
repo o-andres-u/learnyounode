@@ -1,14 +1,11 @@
 // Node Modules
-var my_module = require('./my_module');
+var http = require('http');
 
 // Local variables
-var dir = process.argv[2];
-var extfilter = process.argv[3];
+var url = process.argv[2];
 
-my_module(dir, extfilter, function (err, data) {
-	if (err) 
-		return console.err(err);
-	data.forEach(function (file) {
-		console.log(file);
-	});
+http.get(url, function (response) {
+	response.setEncoding('utf-8');
+	response.on("data", console.log);
+	response.on("error", console.error);
 });
